@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #ECF0F1;
+            padding: 30px 25%;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+        #container {
+            margin: 0 auto;
+            width: 640px;
+            height: 640px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+        }
+
+        #container div {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .black {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .white {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CSS Grid - Chess Board Design</h1>
+    <p>Created by <a href="https://petehouston.com/">Pete Houston</a></p>
+</header>
+
+<section id="container">
+</section>
+
+<script>
+(function () {
+    var _cellBlack = '<div class="black"></div>',
+        _cellWhite = '<div class="white"></div>';
+    var MAX_CELL = 8;
+
+    var _gridContainer = document.querySelector('#container');
+    for(var i = 0; i < MAX_CELL; i++) {
+        for(var j = 0; j < MAX_CELL; j++) {
+            if((i + j) % 2 == 0) {
+                _gridContainer.insertAdjacentHTML('beforeend', _cellBlack);
+            } else {
+                _gridContainer.insertAdjacentHTML('beforeend', _cellWhite);
+            }
+        }
+    }
+})();
+</script>
+</body>
+</html>
